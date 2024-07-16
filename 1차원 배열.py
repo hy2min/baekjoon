@@ -52,3 +52,29 @@
 #         students.remove(n)
 # print(min(students))
 # print(max(students))
+
+# # 3052.나머지
+# numbers = []
+# for _ in range(10) :
+#     n = int(input())
+#     numbers.append(n)
+# remainders = [n%42 for n in numbers]
+# count_num = set(remainders)
+# print(len(count_num))
+
+# # 10811.바구니 뒤집기
+# n, m = map(int, input().split())
+# nums = []
+# for num in range(n) :
+#     nums.append(num+1)
+# for _ in range(m) :
+#     i, j = map(int,input().split())
+#     nums[i-1:j] = nums[i-1:j][::-1] 
+# answer = " ".join(map(str,nums))
+# print(answer)
+
+# 1546.평균
+n = int(input())
+score = list(map(int,input().split()))
+average = sum(score)*100/(n*max(score))
+print(average)

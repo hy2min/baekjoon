@@ -90,3 +90,30 @@
 # lists.sort(key=lambda i: (i[1], i[0]))
 # for i in lists :
 #     print(i[0],i[1])
+
+# # 1181.단어 정렬
+# n = int(input())
+# words = [input() for _ in range(n)]
+# words = list(set(words))
+# words.sort(key=lambda i : (len(i),i))
+
+# for word in words :
+#     print(word)
+
+# # 10814.나이순 정렬
+# n = int(input())
+# people = []
+# for _ in range(n) :
+#     age,name = input().split()
+#     people.append((int(age),name))
+# people.sort(key=lambda i :(i[0]))
+# for person in people :
+#     print(person[0],person[1])
+
+# 18870.좌표 압축
+n = int(input())
+nums = list(map(int, input().split()))
+arr_nums = sorted(set(nums))
+arr_dict = {val: i for i, val in enumerate(arr_nums)}
+answer = [arr_dict[i] for i in nums]
+print(" ".join(map(str, answer)))

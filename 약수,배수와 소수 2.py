@@ -91,28 +91,60 @@
 #     if is_prime(i) :
 #         print(i)
 
-# 4948.베르트랑 공준
-def is_prime(n):
-    if n < 2:
-        return False
-    if n == 2:
-        return True
-    if n % 2 == 0:
-        return False
-    i = 3
-    while i * i <= n:
-        if n % i == 0:
-            return False
-        i += 2
-    return True
+# # 4948.베르트랑 공준
+# def is_prime(n) :
+#     prime_list = [True]*(n+1)
+#     prime_list[0] = prime_list[1] = False
+#     p =2
+#     while p * p <= n :
+#         if prime_list[p] :
+#             for i in range(p*p, n+1, p) :
+#                 prime_list[i] = False
+#         p += 1
+#     return prime_list
 
+# max_n = 123456
+# prime_flags = is_prime(2 * max_n)
 
-while True:
-    n = int(input())
-    if n == 0:
-        break
-    answer = 0
-    for i in range(n+1, (2*n)+1):
-        if is_prime(i):
-            answer += 1
-    print(answer)
+# while True :
+#     n = int(input())
+#     if n == 0 :
+#         break
+#     answer = sum(prime_flags[n+1 : (2*n)+1])
+#     print(answer)
+
+# # 17103.골드바흐 파티션
+# def is_prime(n) :
+#     prime_list = [True]*(n+1)
+#     prime_list[0] = prime_list[1] = False
+#     p =2
+#     while p * p <= n :
+#         if prime_list[p] :
+#             for i in range(p*p, n+1, p) :
+#                 prime_list[i] = False
+#         p += 1
+#     return prime_list
+
+# def prime_pair(n,prime) :
+#     count = 0
+#     for i in range(2,n//2 +1) :
+#         if prime[i] and prime[n-i] :
+#             count += 1
+#     return count
+# max_n = 1000000
+# prime_flags = is_prime(max_n)
+
+# t = int(input())
+# for _ in range(t) :
+#     n = int(input())
+#     answer = prime_pair(n,prime_flags)
+#     print(answer)
+
+# 13909.창문 닫기
+n = int(input())
+count = 0
+i = 1
+while i * i <= n :
+    count += 1
+    i += 1
+print(count)

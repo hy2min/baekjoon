@@ -139,3 +139,156 @@
 # queue = list(map(int,input().split()))
 # print(snack_sequence(queue))
 
+# # 18258.큐 2
+# import sys
+# from collections import deque
+# class Queue :
+#     def __init__(self) :
+#         self.queue = deque()
+#     def push(self,x) :
+#         self.queue.append(x)
+#     def pop(self) :
+#         if self.queue :
+#             return self.queue.popleft()
+#         else:
+#             return -1
+#     def size(self) :
+#         return len(self.queue)
+#     def empty(self) :
+#         if self.queue :
+#             return 0
+#         else :
+#             return 1
+#     def front(self) :
+#         if self.queue :
+#             return self.queue[0]
+#         else :
+#             return -1
+#     def back(self) :
+#         if self.queue :
+#             return self.queue[-1]
+#         else :
+#             return -1
+
+# n = int(input())
+# q = Queue()
+
+# for _ in range(n) :
+#     command = sys.stdin.readline().strip()
+#     if command.startswith("push") :
+#         _,x = command.split()
+#         q.push(x)
+#     elif command == "pop" :
+#         print(q.pop())    
+#     elif command == "size" :
+#         print(q.size())    
+#     elif command == "empty" :
+#         print(q.empty())    
+#     elif command == "front" :
+#         print(q.front())    
+#     elif command == "back" :
+#         print(q.back())    
+
+# # 11866.요세푸스 문제 0
+# from collections import deque
+
+# def josephus(n, k) :
+#     queue = deque(range(1, n+1))
+#     result = []
+
+#     while queue :
+#         queue.rotate(-k+1)
+#         result.append(queue.popleft())
+#     return result
+
+# n, k = map(int,input().split())
+# result = josephus(n, k)
+# print("<" + ", ".join(map(str,result)) + ">")
+
+# # 2164.카드2
+# from collections import deque
+# def card(n) :
+#     queue = deque(range(1, n+1))
+#     while len(queue) >1:
+#         queue.popleft()
+#         queue.rotate(-1)
+#     return queue[0]
+
+# n = int(input())
+# print(card(n))
+
+# # 28297.덱 2
+# import sys
+# from collections import deque
+
+# class Deque :
+#     def __init__(self) :
+#         self.deque = deque()
+#     def front_push(self,x) :
+#         self.deque.appendleft(x)
+#     def back_push(self,x) :
+#         self.deque.append(x)
+#     def left_pop(self) :
+#         if self.deque :
+#             return self.deque.popleft()
+#         else :
+#             return -1
+#     def pop(self) :
+#         if self.deque :
+#             return self.deque.pop()
+#         else :
+#             return -1
+#     def size(self) :
+#         return len(self.deque)
+#     def empty(self) :
+#         if self.deque :
+#             return 0
+#         else :
+#             return 1
+#     def left_num(self) :
+#         if self.deque :
+#             return self.deque[0]
+#         else :
+#             return -1
+#     def num(self) :
+#         if self.deque :
+#             return self.deque[-1]
+#         else :
+#             return -1
+
+# n = int(input())
+# d = Deque()
+# for _ in range(n) :
+#     command = sys.stdin.readline().strip()
+#     if command.startswith("1 ") :
+#         _,x = command.split()
+#         d.front_push(x)
+#     elif command.startswith("2 ") :
+#         _,x = command.split()
+#         d.back_push(x)
+#     elif command == "3" :
+#         print(d.left_pop())
+#     elif command == "4" :
+#         print(d.pop())
+#     elif command == "5" :
+#         print(d.size())
+#     elif command == "6" :
+#         print(d.empty())
+#     elif command == "7" :
+#         print(d.left_num())
+#     elif command == "8" :
+#         print(d.num())   
+
+# 1346.풍선 터뜨리기
+import sys
+from collections import deque
+
+n = int(sys.stdin.readline())
+q = deque(enumerate(map(int,input().split())))
+result = []
+
+while q :
+    balloon, num = q.popleft()
+    print(balloon, num)
+    result.append(balloon + 1)
+    

@@ -279,16 +279,41 @@
 #     elif command == "8" :
 #         print(d.num())   
 
-# 1346.풍선 터뜨리기
-import sys
+# # 1346.풍선 터뜨리기
+# import sys
+# from collections import deque
+
+# n = int(sys.stdin.readline())
+# q = deque(enumerate(map(int,input().split())))
+# result = []
+
+# while q :
+#     balloon, num = q.popleft()
+#     result.append(balloon + 1)
+
+#     if num > 0 :
+#         q.rotate(-num+1)
+#     elif num < 0 :
+#         q.rotate(-num)
+
+# print(" ".join(map(str,result)))
+
+# 24511. queuestack
 from collections import deque
 
-n = int(sys.stdin.readline())
-q = deque(enumerate(map(int,input().split())))
-result = []
+n = int(input())
+a = list(map(int,input().split()))
+b = list(map(int,input().split()))
+m = int(input())
+c = list(map(int,input().split()))
 
-while q :
-    balloon, num = q.popleft()
-    print(balloon, num)
-    result.append(balloon + 1)
-    
+queuestack = deque()
+for i in range(n) :
+    if a[i] == 0 :
+        queuestack.append(b[i])
+
+for j in range(m) :
+    queuestack.appendleft(c[j])
+
+for _ in range(m) :
+    print(queuestack.pop(), end=" ")

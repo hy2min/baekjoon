@@ -1303,25 +1303,404 @@
 #     all_char.extend(s)
 # print("".join(all_char))
 
-# 14.5-6
-arr = [[0] * 3 for _ in range(3)]
+# # 14.5-6
+# arr = [[0] * 3 for _ in range(3)]
 
-def magic():
-    start = 1
-    for i in range(3):
-        for j in range(i, 3):
-            arr[i][j] = start
-            start += 1
-    return arr
+# def magic():
+#     start = 1
+#     for i in range(3):
+#         for j in range(i, 3):
+#             arr[i][j] = start
+#             start += 1
+#     return arr
 
-def output(arr):
-    for i in arr:
-        for j in i:
-            if j == 0:
-                print(" ", end="")
-            else:
-                print(j, end="")
-        print()
+# def output(arr):
+#     for i in arr:
+#         for j in i:
+#             if j == 0:
+#                 print(" ", end="")
+#             else:
+#                 print(j, end="")
+#         print()
 
-m = magic()
-output(m)
+# m = magic()
+# output(m)
+
+
+# # 15-1
+# s1 = input()
+# s2 = input()
+
+# if len(s1) != len(s2):
+#     print("다름")
+# else:
+#     for chr1, chr2 in zip(s1, s2):
+#         if chr1 != chr2:
+#             print("다름")
+#             break
+#     else:
+#         print("같음")
+
+# # 15-2
+# while True:
+#     n = int(input())
+#     if 1000 <= n <= 9999:
+#         break
+
+# a = n // 1000
+# b = (n % 1000) // 100
+# c = (n % 100) // 10
+# d = n % 10
+
+# for i in (a, b, c, d):
+#     print(f'숫자{i}')
+
+# # 15-3
+# scores = list(map(int, input().split()))
+# i = 0
+# while i < 5:
+#     if abs(scores[i]-scores[i+1]) > 3:
+#         print("재배치필요")
+#         break
+#     i += 1
+# else:
+#     print("완벽한배치")
+
+# # 15-4
+# while True:
+#     s1 = input()
+#     s2 = input()
+#     if len(s1) <= 10 and len(s2) <= 10:
+#         break
+
+# t = len(s1) - 1
+# for i in range(len(s1)):
+#     if s1[i] != s2[t]:
+#         print("거울문장아님")
+#         break
+#     t -= 1
+# else:
+#     print("거울문장")
+# # if s1[::-1] == s2:
+# #     print("거울문장")
+# # else:
+# #     print("거울문장아님")
+
+# # 15-5
+# length = []
+# arr = []
+
+# for _ in range(4):
+#     row = input()
+#     if len(row) > 6:
+#         continue
+#     arr.append(list(row))
+#     # length.append(len(row))
+
+# for i in arr:
+#     cnt = 0
+#     for j in i:
+#         cnt += 1
+#     length.append(cnt)
+# length.sort()
+
+# print(" ".join(map(str,length)))
+
+# # 15-6
+# while True:
+#     s = input()
+#     if len(s) <= 10:
+#         break
+
+# flag = True
+
+# for i in range(1, len(s)):
+#     if i % 2 == 0:
+#         if not s[i].isupper():
+#             flag = False
+#             break
+#     else:
+#         if not s[i].islower():
+#             flag = False
+#             break
+
+# if flag == True:
+#     print("개구리문장")
+# else:
+#     print("일반문장")
+
+# # 15-7
+# arr = ['A', 'B', 'C', 'Z', 'E', 'T', 'Q']
+# black_list = list(input())
+# for i in black_list:
+#     if i in arr:
+#         print(f'{i}=마을사람')
+#     else:
+#         print(f'{i}=외부사람')
+
+# # 15-8
+# sentences = []
+
+# for _ in range(5):
+#     s = input()
+#     if len(s) <= 10:
+#         sentences.append(s)
+
+# max_length = max(sentences, key=len)
+# print(max_length)
+
+# # 15-9
+# sentence1 = "BBQWORLD"
+# sentence2 = "KFCAPPLE"
+# sentence3 = "LOT"
+
+# s = input()
+# cnt = sentence1.count(s) + sentence2.count(s) + sentence3.count(s)
+# print(cnt)
+
+# # 15-10
+# def CountLine(s):
+#     for i in s:
+#         print(f'{len(i)}={"".join(i)}')
+
+# arr = []
+# for _ in range(3):
+#     row = input()
+#     if len(row) <=10:
+#         arr.append(list(row))
+
+# CountLine(arr)
+
+# # 15-11
+# arr = []
+# for _ in range(4):
+#     s = input()
+#     if len(s) <= 5:
+#         arr.append(list(s))
+
+# check_a = False
+# check_b = False
+# for i in arr:
+#     if 'A' in i:
+#         check_a = True
+#     if 'B' in i:
+#         check_b = True
+
+# if check_a and check_b:
+#     print("대발견")
+# elif check_a or check_b:
+#     print("중발견")
+# else:
+#     print("미발견")
+
+# # 15-12
+# arr = []
+# for _ in range(2):
+#     s = input()
+#     if len(s) <= 5:
+#         arr.append(list(s))
+
+# char_arr = [' '] * 12
+# index = 0
+# for i in arr:
+#     for j in i:
+#         char_arr[index] = j
+#         index += 1
+
+# print("".join(char_arr))
+
+# # 15-13
+# arr = [
+#     ['D', 'A', 'T', 'A', 'W', ''],
+#     ['B', 'B', 'Q', 'K', '', ''],
+#     ]
+# n = int(input())
+# if n % 2 == 1:
+#     arr[0].sort()
+# else:
+#     arr[1].sort()
+
+# for i in arr:
+#     for j in i:
+#         print(j, end="")
+#     print()
+
+# # 15-14
+# arr = [
+#     ['P','O','T','I','O',''],
+#     ['A','B','C','D','E',''],
+#     ['Y','O','U','R','E',''],
+# ]
+# a, b = map(int, input().split())
+# for i in range(len(arr)):
+#     for j in range(a, b+1):
+#         print(arr[i][j], end="")
+
+# # 15-15
+# arr = []
+# for _ in range(2):
+#     s = list(input())
+#     if len(s) <= 8:
+#         arr.append(s)
+
+# min_length = min(len(arr[0]), len(arr[1]))
+# cnt = abs(len(arr[0])-len(arr[1]))
+# for i in range(min_length):
+#     if arr[0][i] != arr[1][i]:
+#         cnt += 1
+# print(cnt)
+
+# # 15-16
+# s = input()
+# arr =[[' '] * 3 for _ in range(3)]
+# current_s = ord(s)
+# i, j = 0, 0
+# while i < 3:
+#     while j < i +1:
+#         arr[2-i][j] = chr(current_s)
+#         current_s += 1
+#         j += 1
+#     i += 1
+#     j = 0
+
+# for i in arr:
+#     for j in i:
+#         print(j,end="")
+#     print()
+
+# # +1
+# print("HELLO WORLD")
+
+# # +2
+# arr = [
+#     [5, 1, 4, 2, 6],
+#     [3, 5, 0, 0, 7],
+#     [9, 9, 8, 3, 1],
+# ]
+# n = int(input())
+# cnt = 0
+# for i in arr:
+#     for j in i:
+#         if j > n:
+#             cnt += 1
+# print(f'{cnt}개')
+
+# # +3
+# arr = [[0] * 4 for _ in range(3)]
+# index = 1
+# for i in range(3):
+#     for j in range(4):
+#         arr[2-i][3-j] = index
+#         index += 1
+
+# n = int(input())
+# for i in range(4):
+#     if n == 1:
+#         arr[0][i] = 7
+#     elif n == 2:
+#         arr[1][i] = 7
+#     elif n == 3:
+#         arr[2][i] = 7
+
+# for i in arr:
+#     for j in i:
+#         print(j, end=" ")
+#     print()
+
+# # +4
+# juso = [402, 401, 302, 301, 202, 201, 102, 101]
+# name = [
+#     ['K','I','M','',''],
+#     ['T','E','A','',''],
+#     ['S','O','M','',''],
+#     ['O','P','P','O',''],
+#     ['T','O','M','',''],
+#     ['G','D','K','',''],
+#     ['J','A','M','E',''],
+#     ['M','I','N','',''],
+# ]
+
+# n = int(input())
+# index = juso.index(n)
+# find_name = name[index]
+# print(''.join(find_name))
+
+# # +5
+# a, b, c = map(int, input().split())
+# for _ in range(c):
+#     for i in range(a, a+b):
+#         print(i, end=" ")
+#     print()
+
+# # +6
+# arr = [0] * 9
+# for _ in range(3):
+#     start_index, end_index = map(int,input().split())
+#     for i in range(start_index, end_index + 1):
+#         arr[i] += 1
+# print(" ".join(map(str, arr)))
+
+# # +8
+# strings = list(input().split())
+# print(max(strings))
+
+# # +9
+# arr = []
+# for _ in range(2):
+#     row = list(map(int, input().split()))
+#     arr.append(row)
+# sorted_arr = [num for row in arr for num in row]
+# for i in range(6):
+#     min_index = i
+#     for j in range(i+1, 6):
+#         if sorted_arr[j] < sorted_arr[min_index]:
+#             min_index = j
+#     sorted_arr[i], sorted_arr[min_index] = sorted_arr[min_index], sorted_arr[i]
+# index = 0
+# for i in range(2):
+#     for j in range(3):
+#         print(sorted_arr[index], end=" ")
+#         index +=1
+#     print()
+
+# # +10
+# arr = [
+#     ['F','R','Q','W','T'],
+#     ['G','A','S','Y','Q'],
+#     ['A','S','A','D','B'],
+# ]
+
+# while True:
+#     n = int(input())
+#     if 0 <= n <= 4:
+#         break
+# for i in range(3):
+#     print(arr[i][n], end="")
+
+# # +11
+# arr = ['A','P','P','L','E','T']
+# alp_list = input().split()
+
+# cnt = 0
+# for alp in alp_list:
+#     for i in arr:
+#         if alp == i:
+#             cnt += 1
+# print(f'{cnt}개 맞추었습니다')
+
+arr = [[0] * 4 for _ in range(4)]
+n = int(input())
+
+for i in range(4):
+    for j in range(4):
+        if i % 2 == 0:
+            arr[i][j] = n
+            n += 1
+        else:
+            arr[i][3-j] = n
+            n += 1
+            
+for i in arr:
+    for j in i:
+        print(j, end=" ")
+    print()
